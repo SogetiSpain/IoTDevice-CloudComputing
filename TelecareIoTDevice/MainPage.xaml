@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="TelecareIoTDevice.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TelecareIoTDevice"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Foreground="Aqua">
+
+    <Grid Background="DarkBlue">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Assets/SogetiLogo_300x68.png" Stretch="None" Width="300" Height="68" />
+            <TextBlock x:Name="IoTDeviceStatusTextBlock" Text="Waiting to initialize telecare device..." Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock Text="Connect Your IoT Device to the Cloud by Osc@rNET." Margin="10,50,10,0" TextAlignment="Center" FontSize="14" />
+            <TextBlock Text="© 2015 SOGETI Spain. Please visit our blog: 'itblogsogeti.com'." Margin="10,0,10,10" TextAlignment="Center" FontStyle="Italic" FontSize="14" />
+        </StackPanel>
+    </Grid>
+</Page>
