@@ -5,34 +5,31 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecareIoTDevice", "TelecareIoTDevice\TelecareIoTDevice.csproj", "{E0DD4C2A-44D4-4348-BAC3-54C606621E67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecareCenter", "TelecareCenter\TelecareCenter.csproj", "{B00F754F-2EB9-4DB8-BA90-46A688E86A64}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TelecareShared", "TelecareShared\TelecareShared.shproj", "{21EBF4E0-C7FC-4803-A1C7-3876A980F49C}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TelecareShared\TelecareShared.projitems*{b00f754f-2eb9-4db8-ba90-46a688e86a64}*SharedItemsImports = 4
+		TelecareShared\TelecareShared.projitems*{21ebf4e0-c7fc-4803-a1c7-3876a980f49c}*SharedItemsImports = 13
+		TelecareShared\TelecareShared.projitems*{e0dd4c2a-44d4-4348-bac3-54c606621e67}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|ARM = Debug|ARM
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|ARM = Release|ARM
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|ARM.ActiveCfg = Debug|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|ARM.Build.0 = Debug|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|ARM.Deploy.0 = Debug|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x64.ActiveCfg = Debug|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x64.Build.0 = Debug|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x64.Deploy.0 = Debug|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x86.ActiveCfg = Debug|x86
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x86.Build.0 = Debug|x86
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|x86.Deploy.0 = Debug|x86
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|ARM.ActiveCfg = Release|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|ARM.Build.0 = Release|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|ARM.Deploy.0 = Release|ARM
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x64.ActiveCfg = Release|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x64.Build.0 = Release|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x64.Deploy.0 = Release|x64
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x86.ActiveCfg = Release|x86
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x86.Build.0 = Release|x86
-		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|x86.Deploy.0 = Release|x86
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|Any CPU.ActiveCfg = Debug|ARM
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|Any CPU.Build.0 = Debug|ARM
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Debug|Any CPU.Deploy.0 = Debug|ARM
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|Any CPU.ActiveCfg = Release|ARM
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|Any CPU.Build.0 = Release|ARM
+		{E0DD4C2A-44D4-4348-BAC3-54C606621E67}.Release|Any CPU.Deploy.0 = Release|ARM
+		{B00F754F-2EB9-4DB8-BA90-46A688E86A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B00F754F-2EB9-4DB8-BA90-46A688E86A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B00F754F-2EB9-4DB8-BA90-46A688E86A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B00F754F-2EB9-4DB8-BA90-46A688E86A64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

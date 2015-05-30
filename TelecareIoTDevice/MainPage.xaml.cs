@@ -14,6 +14,7 @@ namespace TelecareIoTDevice
     using System.Text;
     using System.Threading.Tasks;
     using Newtonsoft.Json;
+    using TelecareShared;
     using Windows.Devices.Gpio;
     using Windows.Security.Cryptography;
     using Windows.Security.Cryptography.Core;
@@ -26,26 +27,6 @@ namespace TelecareIoTDevice
     public sealed partial class MainPage : Page
     {
         #region Fields
-
-        /// <summary>
-        /// Defines the queue name (Azure Service Bus).
-        /// </summary>
-        private const string BusQueueName = "IoTDevice-CloudComputing";
-
-        /// <summary>
-        /// Defines the queue namespace (Azure Service Bus).
-        /// </summary>
-        private const string BusQueueNamespace = "IoTdevice-CloudComputing-ns";
-
-        /// <summary>
-        /// Defines the shared access key (Azure Service Bus).
-        /// </summary>
-        private const string BusSharedAccessKey = "wng3EFI83uz5SrPF8Ie+IEG/d+Db8XewFO8Dk+ihigc=";
-
-        /// <summary>
-        /// Defines the shared access key name (Azure Service Bus).
-        /// </summary>
-        private const string BusSharedAccessKeyName = "SubmitAndProcess";
 
         /// <summary>
         /// Defines the GPIO number for the buzzer.
@@ -126,16 +107,16 @@ namespace TelecareIoTDevice
         {
             var expiry = (int)DateTime.UtcNow.AddMinutes(20).Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 
-            var uri = string.Format("{0}.servicebus.windows.net", MainPage.BusQueueNamespace);
+            var uri = string.Format("{0}.servicebus.windows.net", QueueConfig.BusQueueNamespace);
             var stringToSign = WebUtility.UrlEncode(uri) + "\n" + expiry.ToString();
-            var signature = this.HmacSha256(MainPage.BusSharedAccessKey, stringToSign);
+            var signature = this.HmacSha256(QueueConfig.BusSharedAccessKey, stringToSign);
 
             var token = String.Format(
                 "sr={0}&sig={1}&se={2}&skn={3}",
                 WebUtility.UrlEncode(uri),
                 WebUtility.UrlEncode(signature),
                 expiry,
-                MainPage.BusSharedAccessKeyName);
+                QueueConfig.BusSharedAccessKeyName);
 
             return token;
         }
@@ -347,7 +328,7 @@ namespace TelecareIoTDevice
             {
                 var baseUri = string.Format(
                     "https://{0}.servicebus.windows.net",
-                    MainPage.BusQueueNamespace);
+                    QueueConfig.BusQueueNamespace);
 
                 using (var client = new HttpClient())
                 {
@@ -362,14 +343,19 @@ namespace TelecareIoTDevice
                     var content = new StringContent(json, Encoding.UTF8);
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                    var path = string.Format("/{0}/messages", MainPage.BusQueueName);
+                    var path = string.Format("/{0}/messages", QueueConfig.BusQueueName);
 
                     var response = client.PostAsync(path, content).Result;
 
                     Debug.WriteLine(response.IsSuccessStatusCode
-                        ? "[{0:yyyy-MM-dd HH:mm:ss}] A notification was sent successfully to service bus queue."
-                        : "[{0:yyyy-MM-dd HH:mm:ss}] Failed to send a notification to service bus queue.",
-                        DateTime.UtcNow);
+                        ? "A notification was sent successfully to service bus queue."
+                        : "Failed to send a notification to service bus queue.");
+
+                    Debug.WriteLine(
+                        "{0:yyyy-MM-dd HH:mm:ss}  {1:N}  {2}",
+                        notification.CreatedAt.ToLocalTime(),
+                        notification.PersonID,
+                        notification.PersonFullName);
                 }
             }
             catch (Exception exception)

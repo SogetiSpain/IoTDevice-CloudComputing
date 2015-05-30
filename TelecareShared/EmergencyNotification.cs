@@ -1,16 +1,18 @@
 ﻿// ----------------------------------------------------------------------------
-// <copyright file="EmergencyNotification" company="SOGETI Spain">
+// <copyright file="EmergencyNotification.cs" company="SOGETI Spain">
 //     Copyright © 2015 SOGETI Spain. All rights reserved.
 //     Connect Your IoT Device to the Cloud by Osc@rNET.
 // </copyright>
 // ----------------------------------------------------------------------------
-namespace TelecareIoTDevice
+namespace TelecareShared
 {
     using System;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Represents a emergency notification.
     /// </summary>
+    [DataContract]
     internal sealed class EmergencyNotification
     {
         #region Properties
@@ -21,6 +23,7 @@ namespace TelecareIoTDevice
         /// <value>
         /// A <see cref="DateTime"/> that represents when it was created.
         /// </value>
+        [DataMember]
         public DateTime CreatedAt
         {
             get;
@@ -33,6 +36,7 @@ namespace TelecareIoTDevice
         /// <value>
         /// The full name of the person.
         /// </value>
+        [DataMember]
         public string PersonFullName
         {
             get;
@@ -45,6 +49,7 @@ namespace TelecareIoTDevice
         /// <value>
         /// The person identifier.
         /// </value>
+        [DataMember]
         public Guid PersonID
         {
             get;
