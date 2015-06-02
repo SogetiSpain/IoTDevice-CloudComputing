@@ -5,4 +5,4 @@ El concepto de internet de las cosas (IoT, por sus siglas en inglés) nos abre u
 
 En el presente artículo mostraré un ejemplo muy básico de cómo conectar nuestros dispositivos IoT (en este caso, una Raspberry Pi 2) a los servicios en la nube y cómo sacarle partido a todo esto.
 
-[Seguir leyendo](http://bit.ly/1KBqZuB)
+[Seguir leyendo](http://bit.ly/1RHduKN)
